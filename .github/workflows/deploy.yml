@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
-# pull_request:
-   #  branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,19 +16,14 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  # Before strart build and deploy seek approval from the Required Reviewer.
-  build-and-deploy:
+ build-and-deploy:
     # The type of runner that the job will run on
   #  runs-on: ubuntu-latest
 
 
     runs-on: windows-latest  # Recommended runner for compiling Windows/Cross-platform UiPath projects
-# GitHub Environment
-# Configure Required Reviewers in:
-# Settings > Environments > production
-environment:
-name: production
-env:
+
+    env:
       # These use secrets configured in your GitHub Repository settings
       UIPATH_URL: "https://cloud.uipath.com/mnscorp/WPT_Prod/orchestrator_" # ${{ secrets.UIPATH_ORCHESTRATOR_URL }}          # e.g., https://uipath.com
       UIPATH_CLIENT_ID: "24514b61-3ea2-473d-a654-2099b5cc6193" # ${{ secrets.UIPATH_EXTERNAL_APP_ID }}     # External App client ID
