@@ -19,8 +19,7 @@ jobs:
   # Before strart build and deploy seek approval from the Required Reviewer.
 env :
   name: production
-  
- build-and-deploy:
+  build-and-deploy:
     # The type of runner that the job will run on
   #  runs-on: ubuntu-latest
 
